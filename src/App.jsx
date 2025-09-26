@@ -13,7 +13,7 @@ function App() {
 
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:5000/translate", formData, {
+      const response = await axios.post("https://pdf-backend-vf56.onrender.com/translate", formData, {
         responseType: "blob",
       });
 
