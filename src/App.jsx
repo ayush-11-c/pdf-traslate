@@ -42,27 +42,28 @@ function App() {
         alignItems: "center",
         justifyContent: "center",
         background: "linear-gradient(to bottom, #f9fafb, #f3f4f6)",
+        position: "relative", // needed for absolute positioning
+        overflow: "hidden",
       }}
     >
-      {/* Top Decoration */}
+      {/* Top Decoration (top-right corner) */}
       <img
         src={top}
         alt="Top Decoration"
         style={{
-          width: "100%",
-          height: "32rem",
+          position: "absolute",
+          top: "0",
+          left: "0",
+          width: "200px",
+          height: "auto",
           objectFit: "contain",
-          boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
+          pointerEvents: "none", // so it doesn’t block clicks
         }}
       />
 
-      {/* Card */}
-      <div style={{
-        marginTop:"5rem"
-      }}>
+      {/* Main Card */}
       <div
         style={{
-          marginTop: "-3rem",
           background: "#fff",
           borderRadius: "16px",
           boxShadow: "0 6px 18px rgba(0,0,0,0.1)",
@@ -73,6 +74,7 @@ function App() {
           flexDirection: "column",
           alignItems: "center",
           textAlign: "center",
+          zIndex: 1, // ensure it stays above decorations
         }}
       >
         <h1
@@ -85,7 +87,9 @@ function App() {
         >
           PDF Translator
         </h1>
-        <p style={{ fontSize: "0.9rem", color: "#4b5563", marginBottom: "1.5rem" }}>
+        <p
+          style={{ fontSize: "0.9rem", color: "#4b5563", marginBottom: "1.5rem" }}
+        >
           Translate your PDF files from{" "}
           <span style={{ fontWeight: "600" }}>English → Hindi</span>
         </p>
@@ -130,17 +134,18 @@ function App() {
         </button>
       </div>
 
-      </div>
-      {/* Bottom Decoration */}
+      {/* Bottom Decoration (bottom-left corner) */}
       <img
         src={bottom}
         alt="Bottom Decoration"
         style={{
-          width: "100%",
-          height: "20rem",
+          position: "absolute",
+          top: "0",
+          right: "0",
+          width: "200px",
+          height: "auto",
           objectFit: "contain",
-          marginTop: "2rem",
-          boxShadow: "inset 0 4px 6px rgba(0,0,0,0.1)",
+          pointerEvents: "none",
         }}
       />
     </div>
